@@ -1,0 +1,42 @@
+import java.io.File;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Scanner;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+public class Aufgabe1
+{
+    public static void main(String[] args) throws Exception
+    {
+    	//Listen in Collections gepackt
+    	Collection<String> listOne = Arrays.asList("Leon Schweitzer","Karl Schweitzer","Natascha Kofner","Tobias Krause");
+    	Collection<String> listTwo = Arrays.asList("Leon Schweitzer","Karl Schweitzer","Selino Gracia","Robert Esteban");
+    	
+    	
+    	// Dann von Liste 1 "Leon Schweitzer", "Karl Schweitzer" rausgenommen und den rest der Listen in ein HashSet gepackt
+    	Collection<String> similar = new HashSet<String>( listOne );
+    	Collection<String>OnlyListe1 = new HashSet<String>();
+    	Collection<String>OnlyListe2 = new HashSet<String>();
+
+    	
+    	// Von liste 1 und Liste 2 die anderen listen dazu getan
+    	OnlyListe1.addAll(listOne);
+    	OnlyListe2.addAll(listTwo);
+    	
+    	// Alle in Liste 2 die gleich sind behalten. In Liste 1 und 2 die gleichen rausgenommen
+    	similar.retainAll(listTwo);
+    	OnlyListe1.removeAll(similar);
+    	OnlyListe2.removeAll(similar);
+    	
+    	// Ausgabe
+    	System.out.printf("One:%s%nTwo:%s%nInBothLists:%s%nOnlyListe1:%s%nOnlyListe2:%s%n", listOne, listTwo, similar, OnlyListe1, OnlyListe2);
+    	
+        }
+    
+    
+    
+}
